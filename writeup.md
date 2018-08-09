@@ -21,21 +21,21 @@ For binlinear sampling, it was left as and upsampling of 2.
 ![Up_Sample](ScreenShots/upsample.png)
 
 Then I have the encoder and decoder blocks as shown below. The encoder blocks are separable convolution using batch normilization and ReLu activation. I used four encoders. The second encoder did not increase the number of filters but I did want to reduce the data information for the training so I used the same encoder parameters as encoder 1 in order to do that. 
-![encoder](Screenshots/encoder.png)
+![encoder](ScreenShots/encoder.png)
 
 The decoder concatenated the previous layer with a larger layer and then pass that concatenated data to the convolution with batch norm and ReLu activation. 
-![decoder](Screenshots/decoder.png)
+![decoder](ScreenShots/decoder.png)
 
 Finally the softmax function is called to complete the FCN using same padding.
 Here I have shown the full model in the screen shot both here in coding:
-![fcn_model](Screenshots/fcn_model.png)
+![fcn_model](ScreenShots/fcn_model.png)
 
 And here I have drawn out the architecture on paper.
 
-![Network](Screenshots/network.jpg)
+![Network](ScreenShots/network.jpg)
 
 Here is what the size of each layer looked like after running the convlutions and ReLu activations and then decoding back to softmax.
-![training_setup](Screenshots/training.png)
+![training_setup](ScreenShots/training.png)
 
 
 ### Parameters
@@ -48,22 +48,22 @@ The batch size affected both the validation error and also if the batch size was
 
 After multiple combinations of these I was still hitting around .38 for the score (which i will explain what the score means below). I was trying to achieve .40 or higher. I was finding that if I increased the number of steps per epoch, I would reduce the validation error very quickly per epoch. This would then reduce my number of epochs needed to run the architecture and create a decent model that would recognize the target and differentiate between target and other items/people.
 
-![Parameters](Screenshots/parameters.png)
+![Parameters](ScreenShots/parameters.png)
 
 ### Images compared to ideal
 Here are the comparisons for the images. These images are generated at random and the last image is my model tested on the image.
-![Target_Near](Screenshots/target_near.png)
+![Target_Near](ScreenShots/target_near.png)
 
-![No_Target](Screenshots/no_target.png)
+![No_Target](ScreenShots/no_target.png)
 
-![Target_Far](Screenshots/target_far.png)
+![Target_Far](ScreenShots/target_far.png)
 
 ### Score and Charts
 
 Althought I brute forced the parameters at the end using my intuition, I did get the best results my increasing the steps per epoch in order to quickly reduce the validation error. I think the number of epochs and images are inversly correlated to the steps per epoch and so I could reduce the number of epochs as my image set was constant.
 
 I did get a good score with a smaller 3 layer encoding and 3 layer decoding network but wanted to try something that allowed me to reduce the size of my picture so I could see what would happen with processing time.
-![Score](Screenshots/scores.png)
+![Score](ScreenShots/scores.png)
 
 
 
