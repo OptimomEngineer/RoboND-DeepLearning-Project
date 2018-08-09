@@ -53,7 +53,9 @@ After multiple combinations of these I was still hitting around .38 for the scor
 ### Images compared to ideal
 Here are the comparisons for the images. These images are generated at random and the last image is my model tested on the image.
 ![Target_Near](Screenshots/target_near.png)
+
 ![No_Target](Screenshots/no_target.png)
+
 ![Target_Far](Screenshots/target_far.png)
 
 ### Score and Charts
