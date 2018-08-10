@@ -72,7 +72,7 @@ I did get a good score with a smaller 3 layer encoding and 3 layer decoding netw
 
 I would most likely change my network to reflect more of a ResNet. If i was to stick to the convolution+ ReLu activation style of processing the data, I would change my network to not reduce the picture so much, I think it would be fine to have more data if I was on the AWS running all night. I would also reduce the size of my picture much more slowly to get more information and then process less steps on the epoch and more epochs in total to not overfit. I would get a better score I think if i did the same with my validation steps and after some thought and trials, I can see that validations steps is inversely porportional to the batch amount; which makes sense since you're validating the data rather than the steps per epoch it would be each batch. So I think I could have increased the validation steps if I reduced the batch size, but I didn't think about that while I was doing the experiment.
 
-Overall, this project was fun and not too challenging as we used code from the semnatic segmentation exercise and we also have helper code by Udacity. I do think the lectures by Andrej Karpathy were extremely helpful, sometimes more so than the course so I would really recommend watching and taking notes from those lectures first and then going through the work on the udacity site.
+Overall, this project was fun and not too challenging as we used code from the semnatic segmentation exercise and we also have helper code by Udacity. I do think the lectures by Andrej Karpathy were extremely helpful, sometimes more so than the course so 
 
 
 
