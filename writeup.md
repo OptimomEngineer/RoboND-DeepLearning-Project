@@ -17,7 +17,7 @@ On to our designed network. For this, I wanted to reduce the amount of data I us
 Here the Udacity helped coding of Separable Conv Batch Norm layers are used with same padding and ReLU activation.
 ![Conv_Layer](ScreenShots/batchnorm.png)
 
-For binlinear sampling, it was left as and upsampling of 2.
+For binlinear sampling, it was left as an upsampling of 2.
 ![Up_Sample](ScreenShots/upsample.png)
 
 Then I have the encoder and decoder blocks as shown below. The encoder blocks are separable convolution using batch normilization and ReLu activation. I used four encoders. The second encoder did not increase the number of filters but I did want to reduce the data information for the training so I used the same encoder parameters as encoder 1 in order to do that. 
