@@ -34,7 +34,10 @@ And here I have drawn out the architecture on paper.
 
 ![Network](ScreenShots/network.JPG)
 
+### Training
 Here is what the size of each layer looked like after running the convlutions and ReLu activations and then decoding back to softmax.
+
+
 ![training_setup](ScreenShots/training.png)
 
 
