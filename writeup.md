@@ -40,6 +40,10 @@ Here is what the size of each layer looked like after running the convlutions an
 
 ![training_setup](ScreenShots/training.png)
 
+### 1x1 
+We use 1x1 convolution because its a cheaper way to go deeper with more parameters and it doesn't change the structure of the final results of a fully connected layer. It's also less of a convolution and more of a matrix multiplier because the number of filters is not directly the previous layer multiplied by the 1x1 convolution matrix - this embodies a mini nueral network running over a patch. Also this allows our data to be processed faster through the network. 
+This also allows us to run inception modules which are when multiple convultions can be run in parallel which allows our total number of parameters to be smaller than normal convolutional networks and still performs better than normal convolutional networks.
+
 
 ### Parameters
 
