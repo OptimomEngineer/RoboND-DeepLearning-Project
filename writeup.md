@@ -22,11 +22,13 @@ For binlinear sampling, it was left as an upsampling of 2.
 
 Then I have the encoder and decoder blocks as shown below. The encoder blocks are separable convolution using batch normilization and ReLu activation. I used four encoders. The second encoder did not increase the number of filters but I did want to reduce the data information for the training so I used the same encoder parameters as encoder 1 in order to do that. 
 
-The encoder is used to build a hidden representation of the input sequence or image. Like a tensor vector! This matematical representation has ALL of the information that a computer can use to process the input sequence, like a full preservation of the information as opposed to not using the encoder technique. Since this is too much information for the computer to process or can take a very long time and so is deemed inefficient method - we use something called batch normilization so that we can take small batches of the data and process some of it at a time to ensure timeliness.
+The encoder is used to build a hidden representation of the input sequence or image. Like a tensor vector! This matematical representation has ALL of the information that a computer can use to process the input sequence, like a full preservation of the information as opposed to not using the encoder technique. Since this is too much information for the computer to process or can take a very long time and so is deemed inefficient method - we use something called batch normilization so that we can take small batches of the data and process some of it at a time to ensure timeliness and simplifies our deep networks.
 ![encoder](ScreenShots/encoder.png)
 
 
 The decoder concatenated the previous layer with a larger layer and then pass that concatenated data to the convolution with batch norm and ReLu activation. The decoder can build the representation of the output in another form from the bottom up to produce an output with meaning. We call this upsampling which allows us to estimate the next pixel of interest from the 4 nearest diagonal pixel values. This final output will then give us a higher resolution image. The problem with this of course is that is can be prone to lose details as this is just an estimate and may not allows decode to the correct parametrization of what the image is supposed to represent.
+
+I used skip connections in my network to help with the loss of data and sum (concatanate) those together with the upsampled outputs from the previous layer to help with the decoding. It helps recover some of the lost data.  
 ![decoder](ScreenShots/decoder.png)
 
 Finally the softmax function is called to complete the FCN using same padding.
@@ -78,6 +80,9 @@ I did get a good score with a smaller 3 layer encoding and 3 layer decoding netw
 ### Cat, dog or other animal?
 I think with the reduction of the data for the human and how large the human is, this model would work fine for other humans or large animals. I do believe that I would prefer to use a resnet or an inception style module in order to work for smaller animals. I think there would be too much information lost in a large modeled environment as the one in the quad simulator.
 
+Also if the training data was at a different distance from the camera, we would need to change the architecture of the model. We would also need to change the layers to improve the network. 
+
+Oh yes and also, we'd want to change the initial training of the animal or object we are interested in. Our network was trained on the target human being. So we'd go back to change the model and then use the new model (trained on the object of interest) on our new test data.
 
 ### Final Thoughts
 
