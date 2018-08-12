@@ -75,7 +75,8 @@ Althought I brute forced the parameters at the end using my intuition, I did get
 I did get a good score with a smaller 3 layer encoding and 3 layer decoding network but wanted to try something that allowed me to reduce the size of my picture so I could see what would happen with processing time.
 ![Score](ScreenShots/scores.png)
 
-
+### Cat, dog or other animal?
+I think with the reduction of the data for the human and how large the human is, this model would work fine for other humans or large animals. I do believe that I would prefer to use a resnet or an inception style module in order to work for smaller animals. I think there would be too much information lost in a large modeled environment as the one in the quad simulator.
 
 
 ### Final Thoughts
