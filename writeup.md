@@ -21,9 +21,12 @@ For binlinear sampling, it was left as an upsampling of 2.
 ![Up_Sample](ScreenShots/upsample.png)
 
 Then I have the encoder and decoder blocks as shown below. The encoder blocks are separable convolution using batch normilization and ReLu activation. I used four encoders. The second encoder did not increase the number of filters but I did want to reduce the data information for the training so I used the same encoder parameters as encoder 1 in order to do that. 
+
+The encoder is used to build a hidden representation of the input sequence or image. Like a tensor vector! This matematical representation has ALL of the information that a computer can use to process the input sequence, like a full preservation of the information as opposed to not using the encoder technique. Since this is too much information for the computer to process or can take a very long time and so is deemed inefficient method - we use something called batch normilization so that we can take small batches of the data and process some of it at a time to ensure timeliness.
 ![encoder](ScreenShots/encoder.png)
 
-The decoder concatenated the previous layer with a larger layer and then pass that concatenated data to the convolution with batch norm and ReLu activation. 
+
+The decoder concatenated the previous layer with a larger layer and then pass that concatenated data to the convolution with batch norm and ReLu activation. The decoder can build the representation of the output in another form from the bottom up to produce an output with meaning. We call this upsampling which allows us to estimate the next pixel of interest from the 4 nearest diagonal pixel values. This final output will then give us a higher resolution image. The problem with this of course is that is can be prone to lose details as this is just an estimate and may not allows decode to the correct parametrization of what the image is supposed to represent.
 ![decoder](ScreenShots/decoder.png)
 
 Finally the softmax function is called to complete the FCN using same padding.
