@@ -84,6 +84,8 @@ Also if the training data was at a different distance from the camera, we would 
 
 Oh yes and also, we'd want to change the initial training of the animal or object we are interested in. Our network was trained on the target human being. So we'd go back to change the model and then use the new model (trained on the object of interest) on our new test data.
 
+So in essence, we need to retrain for our specific object for the new object of interest and use that model as well as possibly change our architecture depending on the distance we train our object at as well as possibly add more layers for complexity!
+
 ### Final Thoughts
 
 I would most likely change my network to reflect more of a ResNet. If i was to stick to the convolution+ ReLu activation style of processing the data, I would change my network to not reduce the picture so much, I think it would be fine to have more data if I was on the AWS running all night. I would also reduce the size of my picture much more slowly to get more information and then process less steps on the epoch and more epochs in total to not overfit. I would get a better score I think if i did the same with my validation steps and after some thought and trials, I can see that validations steps is inversely porportional to the batch amount; which makes sense since you're validating the data rather than the steps per epoch it would be each batch. So I think I could have increased the validation steps if I reduced the batch size, but I didn't think about that while I was doing the experiment.
